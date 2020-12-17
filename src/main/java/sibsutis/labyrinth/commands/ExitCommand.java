@@ -1,9 +1,16 @@
 package sibsutis.labyrinth.commands;
 
 import sibsutis.labyrinth.core.Labyrinth;
+import sibsutis.labyrinth.writer.Writer;
 
 public class ExitCommand implements Command {
     private static final String EXIT_CODE = "exit";
+
+    private final Writer writer;
+
+    public ExitCommand(Writer writer) {
+        this.writer = writer;
+    }
 
     @Override
     public boolean verify(String command) {
@@ -12,7 +19,7 @@ public class ExitCommand implements Command {
 
     @Override
     public void execute(String command, Labyrinth labyrinth) {
-        System.out.println("До скорой встречи");
+        writer.write("До скорой встречи");
         System.exit(0);
     }
 }

@@ -3,12 +3,19 @@ package sibsutis.labyrinth.commands;
 import sibsutis.labyrinth.core.Labyrinth;
 import sibsutis.labyrinth.utils.Pair;
 import sibsutis.labyrinth.utils.Parser;
+import sibsutis.labyrinth.writer.Writer;
 
 public class NewLabyrinthCommand implements Command {
     private static final String ERROR = "Команда new с неверными аргументами - %s. Min 4, max 20";
     private static final String NEW_CODE = "new";
     private static final int MIN = 3;
     private static final int MAX = 21;
+
+    private final Writer writer;
+
+    public NewLabyrinthCommand(Writer writer) {
+        this.writer = writer;
+    }
 
     @Override
     public boolean verify(String command) {
@@ -21,7 +28,7 @@ public class NewLabyrinthCommand implements Command {
                     return true;
                 }
             }
-            System.out.println(String.format(ERROR, command));
+            writer.write(String.format(ERROR, command));
         }
         return false;
     }

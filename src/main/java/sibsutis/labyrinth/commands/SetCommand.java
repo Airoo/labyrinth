@@ -3,6 +3,7 @@ package sibsutis.labyrinth.commands;
 import sibsutis.labyrinth.core.Labyrinth;
 import sibsutis.labyrinth.utils.Parser;
 import sibsutis.labyrinth.utils.Triple;
+import sibsutis.labyrinth.writer.Writer;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -17,6 +18,12 @@ public class SetCommand implements Command {
     private static final Set<Integer> TYPE_CODES = Stream.of(0, 1, 2, 3).collect(Collectors.toSet());
     private static final int ZERO = 0;
 
+    private final Writer writer;
+
+    public SetCommand(Writer writer) {
+        this.writer = writer;
+    }
+
     @Override
     public boolean verify(String command) {
         if (command.startsWith(SET_CODE)) {
@@ -29,7 +36,7 @@ public class SetCommand implements Command {
                     return true;
                 }
             }
-            System.out.println(String.format(ERROR_COMMAND, command));
+            writer.write(String.format(ERROR_COMMAND, command));
         }
         return false;
     }
@@ -45,16 +52,16 @@ public class SetCommand implements Command {
         int height = labyrinth.getHeight() - 1;
 
         if (x < ZERO || y < ZERO || x > width || y > height) {
-            System.out.println(String.format(ERROR_BORDER, width, height));
+            writer.write(String.format(ERROR_BORDER, width, height));
             return;
         }
 
         if ((type == 2 || type == 3) && (x > 0 && x < width && y > 0 && y < height)) {
-            System.out.println(ERROR_BORDER_TYPE);
+            writer.write(ERROR_BORDER_TYPE);
             return;
         }
         if ((type == 0) && (x <= 0 || x >= width || y <= 0 || y >= height)) {
-            System.out.println(ERROR_INNER_BORDER_TYPE);
+            writer.write(ERROR_INNER_BORDER_TYPE);
             return;
         }
 

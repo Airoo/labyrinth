@@ -2,8 +2,12 @@ package sibsutis.labyrinth.commands;
 
 import sibsutis.labyrinth.core.Labyrinth;
 import sibsutis.labyrinth.utils.Pair;
+import sibsutis.labyrinth.writer.Writer;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.function.Function;
 
 public class StartCommand implements Command {
@@ -19,6 +23,12 @@ public class StartCommand implements Command {
             dot -> Pair.of(dot.getLeft() + 1, dot.getRight()),
             dot -> Pair.of(dot.getLeft() - 1, dot.getRight())
     );
+
+    private final Writer writer;
+
+    public StartCommand(Writer writer) {
+        this.writer = writer;
+    }
 
     @Override
     public boolean verify(String command) {
@@ -41,18 +51,18 @@ public class StartCommand implements Command {
         }
 
         if (startPoint == null) {
-            System.out.println(ERROR_COMMAND);
+            writer.write(ERROR_COMMAND);
             return;
         }
 
         List<Pair<Integer, Integer>> result = search(startPoint, labyrinth, new ArrayList<>());
         if (result.isEmpty()) {
-            System.out.println(RESULT_WITHOUT_EXIT);
+            writer.write(RESULT_WITHOUT_EXIT);
         } else {
             for (Pair<Integer, Integer> dot : result) {
                 core[dot.getLeft()][dot.getRight()] = EXIT_CODE;
             }
-            System.out.println(RESULT_WITH_EXIT);
+            writer.write(RESULT_WITH_EXIT);
         }
     }
 

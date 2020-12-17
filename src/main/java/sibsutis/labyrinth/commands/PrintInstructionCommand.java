@@ -1,6 +1,7 @@
 package sibsutis.labyrinth.commands;
 
 import sibsutis.labyrinth.core.Labyrinth;
+import sibsutis.labyrinth.writer.Writer;
 
 public class PrintInstructionCommand implements Command {
     private static final String PINST_CODE = "pinst";
@@ -14,6 +15,12 @@ public class PrintInstructionCommand implements Command {
             "pinst - распечатать команды алгоритма" +
             "ex x - загрузить пример лабиринта (x - номер примера (1, 2, 3))";
 
+    private final Writer writer;
+
+    public PrintInstructionCommand(Writer writer) {
+        this.writer = writer;
+    }
+
     @Override
     public boolean verify(String command) {
         return PINST_CODE.equalsIgnoreCase(command);
@@ -21,6 +28,6 @@ public class PrintInstructionCommand implements Command {
 
     @Override
     public void execute(String command, Labyrinth labyrinth) {
-        System.out.println(INSTRUCTION_INFO);
+        writer.write(INSTRUCTION_INFO);
     }
 }

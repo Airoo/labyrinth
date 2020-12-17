@@ -1,6 +1,7 @@
 package sibsutis.labyrinth.commands;
 
 import sibsutis.labyrinth.core.Labyrinth;
+import sibsutis.labyrinth.writer.Writer;
 
 public class PrintStructureCommand implements Command {
     private static final String PSTR_CODE = "pstr";
@@ -15,6 +16,12 @@ public class PrintStructureCommand implements Command {
             "Тип 2 и 3 должны содержаться в лабиринте в единичном экзепляре" +
             "Тип 0 должен содержаться внутри лабиринта";
 
+    private final Writer writer;
+
+    public PrintStructureCommand(Writer writer) {
+        this.writer = writer;
+    }
+
     @Override
     public boolean verify(String command) {
         return PSTR_CODE.equalsIgnoreCase(command);
@@ -22,6 +29,6 @@ public class PrintStructureCommand implements Command {
 
     @Override
     public void execute(String command, Labyrinth labyrinth) {
-        System.out.println(STRUCTURE_INFO);
+        writer.write(STRUCTURE_INFO);
     }
 }

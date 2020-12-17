@@ -1,9 +1,16 @@
 package sibsutis.labyrinth.commands;
 
 import sibsutis.labyrinth.core.Labyrinth;
+import sibsutis.labyrinth.writer.Writer;
 
 public class PrintLabyrinthCommand implements Command {
     private static final String PLAB_CODE = "plab";
+
+    private final Writer writer;
+
+    public PrintLabyrinthCommand(Writer writer) {
+        this.writer = writer;
+    }
 
     @Override
     public boolean verify(String command) {
@@ -15,9 +22,9 @@ public class PrintLabyrinthCommand implements Command {
         int[][] core = labyrinth.getCore();
         for (int[] raw : core) {
             for (int i : raw) {
-                System.out.print(i + " ");
+                writer.write(i + " ");
             }
-            System.out.println();
+            writer.write("");
         }
     }
 }

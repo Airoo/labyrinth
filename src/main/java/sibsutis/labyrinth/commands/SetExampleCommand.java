@@ -3,6 +3,7 @@ package sibsutis.labyrinth.commands;
 import sibsutis.labyrinth.core.Labyrinth;
 import sibsutis.labyrinth.examples.LabyrinthExample;
 import sibsutis.labyrinth.utils.Parser;
+import sibsutis.labyrinth.writer.Writer;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -13,6 +14,12 @@ public class SetExampleCommand implements Command {
     private static final Set<Integer> EXAMPLES = Stream.of(1, 2, 3).collect(Collectors.toSet());
     private static final String ERROR_COMMAND = "Команда ex с неверными аргументом - %s. Доступны примеры 1, 2, 3";
 
+    private final Writer writer;
+
+    public SetExampleCommand(Writer writer) {
+        this.writer = writer;
+    }
+
     @Override
     public boolean verify(String command) {
         if (command.startsWith(EX_CODE)) {
@@ -22,7 +29,7 @@ public class SetExampleCommand implements Command {
                     return true;
                 }
             }
-            System.out.println(String.format(ERROR_COMMAND, value));
+            writer.write(String.format(ERROR_COMMAND, value));
         }
         return false;
     }
