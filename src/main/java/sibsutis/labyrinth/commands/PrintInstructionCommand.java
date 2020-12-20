@@ -3,6 +3,11 @@ package sibsutis.labyrinth.commands;
 import sibsutis.labyrinth.core.Labyrinth;
 import sibsutis.labyrinth.writer.Writer;
 
+/**
+ * Команда вывода инструкции
+ *
+ * @see Command
+ */
 public class PrintInstructionCommand implements Command {
     private static final String PINST_CODE = "pinst";
     private static final String INSTRUCTION_INFO = "Команды:\n" +

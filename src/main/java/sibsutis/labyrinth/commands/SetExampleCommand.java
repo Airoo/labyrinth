@@ -9,6 +9,11 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Команда установки лабиритна из шаблонов
+ *
+ * @see Command
+ */
 public class SetExampleCommand implements Command {
     private static final String EX_CODE = "ex";
     private static final Set<Integer> EXAMPLES = Stream.of(1, 2, 3).collect(Collectors.toSet());

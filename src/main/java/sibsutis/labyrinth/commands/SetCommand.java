@@ -9,6 +9,11 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Команда редактирования алгоритма
+ *
+ * @see Command
+ */
 public class SetCommand implements Command {
     private static final String ERROR_COMMAND = "Команда set с неверными аргументами - %s. Доступны типы 0, 1, 2, 3";
     private static final String ERROR_BORDER = "Неверные границы в параметре. Лабиринт имеет граицы по x - %s, по y - %S";

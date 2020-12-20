@@ -12,7 +12,9 @@ import java.util.Scanner;
 import java.util.Set;
 
 /**
- * Главный класс для сапуска приложения
+ * Главный класс для запуска приложения
+ *
+ * @author Константин Т
  */
 public class Main {
     private static final Set<Command> COMMANDS = new HashSet<>();

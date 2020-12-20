@@ -2,6 +2,9 @@ package sibsutis.labyrinth.commands;
 
 import sibsutis.labyrinth.core.Labyrinth;
 
+/**
+ * Основной инерфейс - Команда
+ */
 public interface Command {
     /**
      * Верификация команды

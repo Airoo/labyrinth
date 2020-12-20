@@ -3,6 +3,11 @@ package sibsutis.labyrinth.commands;
 import sibsutis.labyrinth.core.Labyrinth;
 import sibsutis.labyrinth.writer.Writer;
 
+/**
+ * Команда вывода структуры
+ *
+ * @see Command
+ */
 public class PrintStructureCommand implements Command {
     private static final String PSTR_CODE = "pstr";
     private static final String STRUCTURE_INFO = "Минимаьный размер стенки лаибинта составляет 4 ячейки, максимальный - 20 ячеек\n" +

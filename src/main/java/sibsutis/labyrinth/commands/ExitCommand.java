@@ -3,6 +3,11 @@ package sibsutis.labyrinth.commands;
 import sibsutis.labyrinth.core.Labyrinth;
 import sibsutis.labyrinth.writer.Writer;
 
+/**
+ * Команда завершения работы
+ *
+ * @see Command
+ */
 public class ExitCommand implements Command {
     private static final String EXIT_CODE = "exit";
 

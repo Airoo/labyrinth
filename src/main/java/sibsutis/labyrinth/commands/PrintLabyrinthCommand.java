@@ -3,6 +3,11 @@ package sibsutis.labyrinth.commands;
 import sibsutis.labyrinth.core.Labyrinth;
 import sibsutis.labyrinth.writer.Writer;
 
+/**
+ * Команда вывода лаибринта
+ *
+ * @see Command
+ */
 public class PrintLabyrinthCommand implements Command {
     private static final String PLAB_CODE = "plab";
 

@@ -2,6 +2,9 @@ package sibsutis.labyrinth.examples;
 
 import sibsutis.labyrinth.core.Labyrinth;
 
+/**
+ * Примеры лабиринтов
+ */
 public interface LabyrinthExample {
     Labyrinth DEFAULT_LABYRINTH = new Labyrinth(4, 4, new int[][]{
             {1, 1, 1, 1},

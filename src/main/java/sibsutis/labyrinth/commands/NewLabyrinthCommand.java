@@ -5,6 +5,11 @@ import sibsutis.labyrinth.utils.Pair;
 import sibsutis.labyrinth.utils.Parser;
 import sibsutis.labyrinth.writer.Writer;
 
+/**
+ * Команда создания нового лабиринта
+ *
+ * @see Command
+ */
 public class NewLabyrinthCommand implements Command {
     private static final String ERROR = "Команда new с неверными аргументами - %s. Min 4, max 20";
     private static final String NEW_CODE = "new";

@@ -1,5 +1,8 @@
 package sibsutis.labyrinth.utils;
 
+/**
+ * Класс для парсинга сообщения
+ */
 public class Parser {
     private static final String DIVIDER = " ";
 

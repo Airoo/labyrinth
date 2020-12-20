@@ -10,6 +10,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
+/**
+ * Команда поиска пути
+ *
+ * @see Command
+ */
 public class StartCommand implements Command {
     private static final String START_CODE = "start";
     private static final String ERROR_COMMAND = "Лабиринт не содержит стартовой точки (тип 2)";

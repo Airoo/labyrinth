@@ -1,5 +1,8 @@
 package sibsutis.labyrinth.core;
 
+/**
+ * Класс лабиринта
+ */
 public class Labyrinth {
     private int width;
     private int height;

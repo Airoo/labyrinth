@@ -1,5 +1,8 @@
 package sibsutis.labyrinth.writer;
 
+/**
+ * Интерфейс вывода сообщения
+ */
 public interface Writer {
     /**
      * Вывод сообщения на новой строке
