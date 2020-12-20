@@ -46,7 +46,7 @@ public class Parser {
         try {
             intValue = Integer.valueOf(value.trim());
         } catch (NumberFormatException e) {
-
+            // no operation
         }
         return intValue;
     }

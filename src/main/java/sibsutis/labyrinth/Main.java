@@ -1,5 +1,6 @@
 package sibsutis.labyrinth;
 
+import org.apache.commons.lang3.StringUtils;
 import sibsutis.labyrinth.commands.*;
 import sibsutis.labyrinth.core.Labyrinth;
 import sibsutis.labyrinth.examples.LabyrinthExample;
@@ -10,6 +11,9 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+/**
+ * Главный класс для сапуска приложения
+ */
 public class Main {
     private static final Set<Command> COMMANDS = new HashSet<>();
     private static final String INTRODUCING = "Добро пожаловать. Это программа поиска пути в лабиринте\n" +
@@ -28,16 +32,18 @@ public class Main {
         COMMANDS.add(new SetExampleCommand(writer));
     }
 
+    /**
+     * Запуск приложения
+     */
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        try {
+        try (Scanner scanner = new Scanner(System.in)) {
             writer.write(INTRODUCING);
             new PrintStructureCommand(writer).execute(null, null);
             new PrintInstructionCommand(writer).execute(null, null);
             Labyrinth labyrinth = LabyrinthExample.DEFAULT_LABYRINTH;
             while (true) {
                 String input = scanner.nextLine().trim();
-                if (input.trim().length() > 1) {
+                if (StringUtils.isNoneBlank(input.trim())) {
                     for (Command command : COMMANDS) {
                         if (command.verify(input)) {
                             command.execute(input, labyrinth);
@@ -45,8 +51,6 @@ public class Main {
                     }
                 }
             }
-        } finally {
-            scanner.close();
         }
 
     }
