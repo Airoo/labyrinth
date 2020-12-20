@@ -29,7 +29,7 @@ public class SetExampleCommand implements Command {
                     return true;
                 }
             }
-            writer.write(String.format(ERROR_COMMAND, value));
+            writer.writeLn(String.format(ERROR_COMMAND, value));
         }
         return false;
     }

@@ -24,7 +24,7 @@ public class PrintLabyrinthCommand implements Command {
             for (int i : raw) {
                 writer.write(i + " ");
             }
-            writer.write("");
+            writer.writeLn("");
         }
     }
 }

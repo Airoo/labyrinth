@@ -36,7 +36,7 @@ public class SetCommand implements Command {
                     return true;
                 }
             }
-            writer.write(String.format(ERROR_COMMAND, command));
+            writer.writeLn(String.format(ERROR_COMMAND, command));
         }
         return false;
     }
@@ -52,16 +52,16 @@ public class SetCommand implements Command {
         int height = labyrinth.getHeight() - 1;
 
         if (x < ZERO || y < ZERO || x > width || y > height) {
-            writer.write(String.format(ERROR_BORDER, width, height));
+            writer.writeLn(String.format(ERROR_BORDER, width, height));
             return;
         }
 
         if ((type == 2 || type == 3) && (x > 0 && x < width && y > 0 && y < height)) {
-            writer.write(ERROR_BORDER_TYPE);
+            writer.writeLn(ERROR_BORDER_TYPE);
             return;
         }
         if ((type == 0) && (x <= 0 || x >= width || y <= 0 || y >= height)) {
-            writer.write(ERROR_INNER_BORDER_TYPE);
+            writer.writeLn(ERROR_INNER_BORDER_TYPE);
             return;
         }
 

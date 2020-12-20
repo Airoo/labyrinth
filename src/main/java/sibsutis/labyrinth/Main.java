@@ -37,7 +37,7 @@ public class Main {
      */
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-            writer.write(INTRODUCING);
+            writer.writeLn(INTRODUCING);
             new PrintStructureCommand(writer).execute(null, null);
             new PrintInstructionCommand(writer).execute(null, null);
             Labyrinth labyrinth = LabyrinthExample.DEFAULT_LABYRINTH;

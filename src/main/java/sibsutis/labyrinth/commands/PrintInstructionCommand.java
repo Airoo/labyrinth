@@ -28,6 +28,6 @@ public class PrintInstructionCommand implements Command {
 
     @Override
     public void execute(String command, Labyrinth labyrinth) {
-        writer.write(INSTRUCTION_INFO);
+        writer.writeLn(INSTRUCTION_INFO);
     }
 }

@@ -29,6 +29,6 @@ public class PrintStructureCommand implements Command {
 
     @Override
     public void execute(String command, Labyrinth labyrinth) {
-        writer.write(STRUCTURE_INFO);
+        writer.writeLn(STRUCTURE_INFO);
     }
 }

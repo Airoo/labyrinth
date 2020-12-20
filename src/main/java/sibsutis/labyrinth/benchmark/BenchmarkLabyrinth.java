@@ -24,8 +24,7 @@ import static sibsutis.labyrinth.examples.LabyrinthExample.*;
 //@Warmup(iterations = 2)
 //@Measurement(iterations = 10)
 public class BenchmarkLabyrinth {
-    private static final Command START_COMMAND = new StartCommand(message -> {
-    });
+    private static final Command START_COMMAND = new StartCommand(new WriterStub());
 
     private List<Labyrinth> dataOne;
     private List<Labyrinth> dataTwo;

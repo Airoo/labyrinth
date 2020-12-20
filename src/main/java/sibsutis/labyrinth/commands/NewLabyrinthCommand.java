@@ -28,7 +28,7 @@ public class NewLabyrinthCommand implements Command {
                     return true;
                 }
             }
-            writer.write(String.format(ERROR, command));
+            writer.writeLn(String.format(ERROR, command));
         }
         return false;
     }

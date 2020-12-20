@@ -51,18 +51,18 @@ public class StartCommand implements Command {
         }
 
         if (startPoint == null) {
-            writer.write(ERROR_COMMAND);
+            writer.writeLn(ERROR_COMMAND);
             return;
         }
 
         List<Pair<Integer, Integer>> result = search(startPoint, labyrinth, new ArrayList<>());
         if (result.isEmpty()) {
-            writer.write(RESULT_WITHOUT_EXIT);
+            writer.writeLn(RESULT_WITHOUT_EXIT);
         } else {
             for (Pair<Integer, Integer> dot : result) {
                 core[dot.getLeft()][dot.getRight()] = EXIT_CODE;
             }
-            writer.write(RESULT_WITH_EXIT);
+            writer.writeLn(RESULT_WITH_EXIT);
         }
     }
 

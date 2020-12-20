@@ -19,7 +19,7 @@ public class ExitCommand implements Command {
 
     @Override
     public void execute(String command, Labyrinth labyrinth) {
-        writer.write("До скорой встречи");
+        writer.writeLn("До скорой встречи");
         System.exit(0);
     }
 }
