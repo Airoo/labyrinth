@@ -18,8 +18,9 @@ import java.util.Set;
  */
 public class Main {
     private static final Set<Command> COMMANDS = new HashSet<>();
-    private static final String INTRODUCING = "Добро пожаловать. Это программа поиска пути в лабиринте\n" +
+    private static final String INTRODUCTION = "Добро пожаловать. Это программа поиска пути в лабиринте\n" +
             "Для выполнения алгоритма поиска необходимо создать лабиринт";
+    private static final String ERROR_COMMAND = "Подана незнакомая команда";
 
     private static final Writer writer = new ConsoleWriter();
 
@@ -39,18 +40,23 @@ public class Main {
      */
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-            writer.writeLn(INTRODUCING);
+            writer.writeLn(INTRODUCTION);
             new PrintStructureCommand(writer).execute(null, null);
             new PrintInstructionCommand(writer).execute(null, null);
             Labyrinth labyrinth = LabyrinthExample.DEFAULT_LABYRINTH;
             while (true) {
                 String input = scanner.nextLine().trim();
+                boolean isRightCommand = false;
                 if (StringUtils.isNoneBlank(input.trim())) {
                     for (Command command : COMMANDS) {
                         if (command.verify(input)) {
+                            isRightCommand = true;
                             command.execute(input, labyrinth);
                         }
                     }
+                }
+                if (!isRightCommand) {
+                    writer.writeLn(ERROR_COMMAND);
                 }
             }
         }
